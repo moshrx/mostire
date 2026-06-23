@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@theme {
+  /* Performance red — crisp, automotive (constant across light & dark) */
+  --color-brand-red: #e4322b;
+  --color-brand-red-dark: #c2271f;
+  --color-brand-red-light: #ff5a4d;
+
+  /* Semantic theme tokens — these point at runtime CSS vars that flip
+     between light and dark (defined in :root and [data-theme="dark"] below).
+     Use these utilities (bg-page, text-ink, border-line, etc.) so the whole
+     site re-themes automatically. */
+  --color-page: var(--c-bg);
+  --color-panel: var(--c-surface);
+  --color-panel-2: var(--c-surface-2);
+  --color-line: var(--c-hairline);
+  --color-ink: var(--c-ink);
+  --color-ink-soft: var(--c-ink-soft);
+  --color-ink-mute: var(--c-ink-mute);
+  --color-invert: var(--c-invert);   /* high-contrast text/icon on panels */
+
+  /* Legacy brand tokens kept so older classes still resolve */
+  --color-brand-black: var(--c-bg);
+  --color-brand-dark: var(--c-surface);
+  --color-brand-gray: var(--c-surface-2);
+  --color-brand-silver: var(--c-ink-soft);
+  --color-brand-white: var(--c-ink);
+
+  --font-family-heading: 'Sora', system-ui, sans-serif;
+  --font-family-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ---------- LIGHT THEME (default) ---------- */
+:root {
+  color-scheme: light;
+  --c-bg: #f6f8fb;          /* page background — cool off-white */
+  --c-surface: #ffffff;     /* cards / panels */
+  --c-surface-2: #eef2f7;   /* raised / hover surfaces */
+  --c-hairline: #dde3ec;    /* borders */
+  --c-ink: #0d1320;         /* primary text — near-black slate */
+  --c-ink-soft: #46546a;    /* secondary text */
+  --c-ink-mute: #6b7686;    /* muted / captions */
+  --c-invert: #0d1320;      /* contrast color (dark on light panels) */
+}
+
+/* ---------- DARK THEME ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --c-bg: #0a0d12;
+  --c-surface: #141922;
+  --c-surface-2: #1c2230;
+  --c-hairline: #28303d;
+  --c-ink: #f3f6fa;
+  --c-ink-soft: #b4bfce;
+  --c-ink-mute: #7e8b9c;
+  --c-invert: #f3f6fa;
+}
+
+/* NOTE: do NOT add a universal margin/padding reset here. As an unlayered rule
+   it outranks every Tailwind layer utility and zeroes out all spacing classes
+   site-wide. Tailwind preflight already handles margin and padding resets. */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth the whole-site flip without animating every micro-interaction */
+.theme-fade,
+.theme-fade * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.25s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  border-radius: 0.375rem;
+}
+
+::selection {
+  background: rgba(228, 50, 43, 0.32);
+  color: #fff;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-hairline);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-ink-mute);
+}
+
+/* ---- Consistent layout rhythm ----
+   Shared by every section so vertical padding, container width, and the
+   header→content gap stay identical site-wide on both mobile and desktop. */
+.section-y {
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+.container-x {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+.section-head {
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+.subhead-gap {
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+.block-gap {
+  margin-top: clamp(3.5rem, 6vw, 5rem);
+}
+
+/* Crisp depth for the performance-red CTAs (kept class name so markup still works) */
+.glow-red {
+  box-shadow: 0 10px 30px -8px rgba(228, 50, 43, 0.45), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.glow-text {
+  text-shadow: none;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, #e4322b, transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* ---- High-end card surface ----
+   Hairline border + soft depth. Premium, restrained. Theme-aware. */
+.card-premium {
+  position: relative;
+  background: var(--c-surface);
+  border: 1px solid var(--c-hairline);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px -18px rgba(8, 12, 20, 0.18);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.card-premium:hover {
+  border-color: color-mix(in srgb, var(--c-hairline) 60%, var(--c-ink) 40%);
+  box-shadow: 0 18px 40px -18px rgba(8, 12, 20, 0.28);
+}
+[data-theme="dark"] .card-premium {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0) 40%),
+    var(--c-surface);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.03) inset, 0 12px 30px -18px rgba(0, 0, 0, 0.8);
+}
+[data-theme="dark"] .card-premium:hover {
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px -18px rgba(0, 0, 0, 0.9);
+}
+
+/* Thin top hairline accent shared across sections */
+.edge-top {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0.12) 70%, transparent);
+}
+
+
+canvas {
+  display: block;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
