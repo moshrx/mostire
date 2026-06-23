@@ -113,19 +113,32 @@ export default function Footer() {
 
       {/* Footer bottom bar */}
       <div className="border-t border-line">
-        <div className="container-x py-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-ink-mute text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Mos Tire Wholesale. All rights reserved. Charlottetown, PEI, Canada.
-          </p>
-          <div className="flex items-center justify-center gap-5">
-            <a href="#/privacy" className="text-ink-mute hover:text-ink text-xs transition-colors">
-              Privacy Policy
-            </a>
-            <span className="text-white/15" aria-hidden="true">|</span>
-            <a href="#/terms" className="text-ink-mute hover:text-ink text-xs transition-colors">
-              Terms of Service
-            </a>
+        <div className="container-x py-5 flex flex-col gap-3">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-ink-mute text-xs text-center sm:text-left">
+              © {new Date().getFullYear()} Mos Tire Wholesale. All rights reserved. Charlottetown, PEI, Canada.
+            </p>
+            <div className="flex items-center justify-center gap-5">
+              <a href="#/privacy" className="text-ink-mute hover:text-ink text-xs transition-colors">
+                Privacy Policy
+              </a>
+              <span className="text-ink-mute/40" aria-hidden="true">|</span>
+              <a href="#/terms" className="text-ink-mute hover:text-ink text-xs transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
+          <p className="text-ink-mute/80 text-xs text-center sm:text-left">
+            Developed by{' '}
+            <a
+              href="https://peiwebstudio.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ink-soft hover:text-[#e4322b] transition-colors"
+            >
+              PEI Web Studio
+            </a>
+          </p>
         </div>
       </div>
     </footer>
