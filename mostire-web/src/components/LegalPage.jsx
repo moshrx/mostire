@@ -26,6 +26,11 @@ export default function LegalPage({ title, updated, description, children }) {
         <title>{title} | Mos Tire Wholesale</title>
         <meta name="description" content={description} />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://mostire.ca/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${title} | Mos Tire Wholesale`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="https://mostire.ca/mostire-logo.jpeg" />
       </Helmet>
 
       {/* Slim top bar */}

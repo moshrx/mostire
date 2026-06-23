@@ -34,11 +34,19 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Mos Tire Wholesale | Premium Tires in Charlottetown, PEI</title>
-        <meta name="description" content="Mos Tire Wholesale is a direct tire importer based in Charlottetown, PEI, serving all of Atlantic Canada. Wholesale prices, free local delivery on 4+ tires within 60km of Charlottetown. Call 902-992-2664." />
-        <meta name="keywords" content="tire wholesale, PEI tires, Charlottetown tires, Atlantic Canada tires, wholesale tires, winter tires, all season tires, tire delivery" />
-        <meta property="og:title" content="Mos Tire Wholesale | Charlottetown, PEI" />
-        <meta property="og:description" content="Direct tire importer serving all of Atlantic Canada. Wholesale prices, free local delivery on 4+ tires within 60km of Charlottetown." />
+        <html lang="en" />
+        <title>Mos Tire Wholesale | Wholesale Tires in Charlottetown, PEI</title>
+        <meta
+          name="description"
+          content="Mos Tire Wholesale is a direct tire importer in Charlottetown, PEI, serving all of Atlantic Canada. Wholesale prices on all-season, winter, performance & truck tires. Free local delivery on 4+ tires within 60km of Charlottetown. Call or text 902-992-2664."
+        />
+        <link rel="canonical" href="https://mostire.ca/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mostire.ca/" />
+        <meta property="og:title" content="Mos Tire Wholesale | Wholesale Tires in Charlottetown, PEI" />
+        <meta property="og:description" content="Direct tire importer serving all of Atlantic Canada. Wholesale prices, free local delivery on 4+ tires within 60km of Charlottetown. Call or text 902-992-2664." />
+        <meta property="og:image" content="https://mostire.ca/mostire-logo.jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
