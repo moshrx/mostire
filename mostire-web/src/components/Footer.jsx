@@ -8,13 +8,6 @@ const footerLinks = {
     { label: 'About Us',      href: '#about' },
     { label: 'Contact',       href: '#contact' },
   ],
-  'Tire Types': [
-    { label: 'All Season Tires',    href: '#brands' },
-    { label: 'Winter / Snow Tires', href: '#brands' },
-    { label: 'Performance Tires',   href: '#brands' },
-    { label: 'All Terrain / Truck', href: '#brands' },
-    { label: 'Run Flat Tires',      href: '#brands' },
-  ],
   'Contact': [
     { label: '902-992-2664',          href: 'tel:9029922664' },
     { label: 'WhatsApp',              href: 'https://wa.me/19029922664' },
@@ -33,7 +26,7 @@ export default function Footer() {
   return (
     <footer className="bg-page border-t border-line">
       <div className="container-x py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
           {/* Brand column */}
           <div className="md:col-span-1">

@@ -81,7 +81,7 @@ const services = [
     Icon: IconShield,
     title: 'Quality Guarantee',
     subtitle: 'Fresh Stock Only',
-    desc: 'Every tire is inspected before it reaches you. No old inventory. No compromised rubber. Fresh stock with Good Quality.',
+    desc: 'Every tire is inspected before it reaches you. No old inventory, no compromised rubber. Just fresh, quality stock.',
     accent: '#22c55e',
     stat: '100%',
     statLabel: 'Inspected',

@@ -339,10 +339,10 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => document.querySelector('#brands')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.querySelector('#how-to-order')?.scrollIntoView({ behavior: 'smooth' })}
               className="rounded-md border border-line hover:border-ink-mute hover:bg-panel-2 text-ink font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 transition-all duration-200 backdrop-blur-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              View brands
+              How it works
             </motion.button>
             <a
               href="tel:9029922664"
@@ -360,7 +360,7 @@ export default function Hero() {
           </motion.p>
 
           <div className="hidden sm:flex flex-wrap items-center gap-2.5 mb-7">
-            {['Free delivery on 4+', 'Fast quotes', 'All major brands'].map((item) => (
+            {['Free delivery on 4+', 'Fast quotes', 'Wholesale prices'].map((item) => (
               <span
                 key={item}
                 className="rounded-full border border-line bg-panel-2 px-4 py-1.5 text-sm font-medium text-ink-soft"
