@@ -1,5 +1,13 @@
 import logo from '/mostire-logo.jpeg'
 
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61575396317595'
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor" aria-hidden="true">
+    <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z" />
+  </svg>
+)
+
 const footerLinks = {
   'Quick Links': [
     { label: 'What We Carry', href: '#brands' },
@@ -74,6 +82,19 @@ export default function Footer() {
                 className="flex items-center gap-2 text-[#25D366] hover:text-ink transition-colors text-sm font-semibold"
               >
                 <span>💬</span> WhatsApp
+              </a>
+            </div>
+
+            {/* Social */}
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Mos Tire Wholesale on Facebook"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-soft hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-colors"
+              >
+                <FacebookIcon />
               </a>
             </div>
           </div>
