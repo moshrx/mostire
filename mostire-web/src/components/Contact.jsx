@@ -80,8 +80,37 @@ export default function Contact() {
     `Hi Mos Tire! I'd like a quote.\n\nName: ${form.name}\nPhone: ${form.phone}\nTire Size: ${form.size || 'Not sure'}\nType: ${form.type || 'Not sure'}\nQuantity: ${form.qty}\nMessage: ${form.message || 'None'}`
   )
 
+  // Webhook (Make.com) that captures the lead so nothing is missed even if
+  // the customer doesn't finish sending in WhatsApp.
+  const LEAD_WEBHOOK = 'https://hook.us2.make.com/qm59tbwqhlj841z9ev34ajnne2bhvh4l'
+
+  const sendLead = async () => {
+    const lead = {
+      name: form.name,
+      phone: form.phone,
+      tireSize: form.size || 'Not sure',
+      tireType: form.type || 'Not sure',
+      quantity: form.qty,
+      message: form.message || '',
+      source: 'mostire.ca quote form',
+      submittedAt: new Date().toISOString(),
+    }
+    try {
+      await fetch(LEAD_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead),
+      })
+    } catch (err) {
+      // Don't block the customer's WhatsApp hand-off if the webhook fails.
+      console.error('Lead submission failed:', err)
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    // Capture the lead in the background, then hand the customer off to WhatsApp.
+    sendLead()
     const msg = encodeURIComponent(quoteMessage())
     window.open(`https://wa.me/19029922664?text=${msg}`, '_blank', 'noopener,noreferrer')
     setSubmitted(true)
